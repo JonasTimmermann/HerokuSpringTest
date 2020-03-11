@@ -33,8 +33,9 @@ import de.emp2020.securityConfig.UsersRepo;
 @SpringBootApplication
 @EnableScheduling
 @EnableTransactionManagement
-public class Emp2020Application implements CommandLineRunner{
+public class Emp2020Application {
 	
+	/**
 	@Autowired
 	UserRepo UserRepo;
 
@@ -45,7 +46,7 @@ public class Emp2020Application implements CommandLineRunner{
 	UserService UserService;
 	@Autowired
 	JdbcUserDetailsManager jdbcUserDetailsManager;
-
+**/
 
 	@Bean
 	public RestTemplate createRestTemplate ()
@@ -58,7 +59,7 @@ public class Emp2020Application implements CommandLineRunner{
 	}
 
 
-	
+	/**
 	@Override
 	public void run(String... arg0) throws Exception {
 
@@ -78,6 +79,6 @@ public class Emp2020Application implements CommandLineRunner{
 		UserRepo.save(u);
 
 	
-	}
+	}**/
 
 }
