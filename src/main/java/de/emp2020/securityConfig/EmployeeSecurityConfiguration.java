@@ -76,7 +76,7 @@ public class EmployeeSecurityConfiguration extends WebSecurityConfigurerAdapter 
 				.antMatchers("/hello2").hasRole("USER")
 				.antMatchers("/users/**").hasAnyRole("ADMIN")
 				.antMatchers("/config/**").permitAll()
-				.antMatchers("/addNewEmployee").hasAnyRole("ADMIN").anyRequest().authenticated()
+				.antMatchers("/addNewEmployee").hasAnyRole("ADMIN").anyRequest().authenticated();
 			
 			//.and().httpBasic(); 
 		
