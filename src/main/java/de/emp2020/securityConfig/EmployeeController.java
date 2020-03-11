@@ -29,8 +29,7 @@ import de.emp2020.users.UserService;
 @RestController
 public class EmployeeController {
 
-	@Autowired
-	EmployeeService employeeService;
+	
 	
 
 	@Autowired
@@ -51,25 +50,8 @@ public class EmployeeController {
 		return "Moin welcome";
 	}
 
-	/** 
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public ModelAndView register() {
-		return new ModelAndView("registration", "user", new UserRegistration());
-	}
+	
 
-	**/
-/** 
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public ModelAndView processRegister(@ModelAttribute("user") UserRegistration userRegistrationObject) {
-		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-		authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
-
-		User user = new User(userRegistrationObject.getUsername(), userRegistrationObject.getPassword(), authorities);
-		jdbcUserDetailsManager.createUser(user);
-		return new ModelAndView("redirect:/welcome");
-    }
-    
-**/
 
 
 	@RequestMapping(path = "/hello")
