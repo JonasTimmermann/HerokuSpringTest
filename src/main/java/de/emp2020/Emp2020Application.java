@@ -43,6 +43,8 @@ public class Emp2020Application implements CommandLineRunner{
 	
 	@Autowired
 	UserService UserService;
+	@Autowired
+	JdbcUserDetailsManager jdbcUserDetailsManager;
 
 
 	@Bean
