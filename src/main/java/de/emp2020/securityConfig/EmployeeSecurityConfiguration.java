@@ -19,7 +19,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 
-@Order(99)
+
 @Configuration
 @EnableWebSecurity
 public class EmployeeSecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -67,7 +67,6 @@ public class EmployeeSecurityConfiguration extends WebSecurityConfigurerAdapter 
 	protected void configure(HttpSecurity http) throws Exception {
 		
 		
-		
 		http.csrf().disable().cors().configurationSource(corsConfigurationSource());
 		http.authorizeRequests().antMatchers("/register").permitAll().antMatchers("/welcome").permitAll().antMatchers("/alerts/**").permitAll()
 				.antMatchers("/user/register").permitAll()
@@ -76,7 +75,7 @@ public class EmployeeSecurityConfiguration extends WebSecurityConfigurerAdapter 
 				.antMatchers("/hello2").hasRole("USER")
 				.antMatchers("/users/**").hasAnyRole("ADMIN")
 				.antMatchers("/config/**").permitAll()
-				.antMatchers("/addNewEmployee").hasAnyRole("ADMIN").anyRequest().authenticated();
+				.antMatchers("/addNewEmployee").hasAnyRole("ADMIN").anyRequest().authenticated().and().httpBasic();
 			
 			//.and().httpBasic(); 
 		
