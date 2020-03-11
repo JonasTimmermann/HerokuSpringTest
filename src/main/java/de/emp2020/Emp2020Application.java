@@ -61,7 +61,7 @@ public class Emp2020Application implements CommandLineRunner{
 	public void run(String... arg0) throws Exception {
 
 
-		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>()
+		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 		authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
 		authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
 		
