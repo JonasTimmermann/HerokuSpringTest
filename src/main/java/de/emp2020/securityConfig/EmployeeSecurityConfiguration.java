@@ -66,6 +66,23 @@ public class EmployeeSecurityConfiguration extends WebSecurityConfigurerAdapter 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
+		
+		
+		http.csrf().disable().cors().configurationSource(corsConfigurationSource());
+		http.authorizeRequests().antMatchers("/register").permitAll().antMatchers("/welcome").permitAll().antMatchers("/alerts/**").permitAll()
+				.antMatchers("/user/register").permitAll()
+				.antMatchers("/hello").hasAnyRole("ADMIN")
+				.antMatchers("/moin").hasRole("ADMIN")
+				.antMatchers("/hello2").hasRole("USER")
+				.antMatchers("/users/**").hasAnyRole("ADMIN")
+				.antMatchers("/config/**").permitAll()
+				.antMatchers("/addNewEmployee").hasAnyRole("ADMIN").anyRequest().authenticated()
+			
+			//.and().httpBasic(); 
+		
+		/**
+		
+		
 		 // working local
 		http.cors().and().csrf().disable();
 		//http.csrf().disable().cors().configurationSource(corsConfigurationSource());
@@ -83,6 +100,8 @@ public class EmployeeSecurityConfiguration extends WebSecurityConfigurerAdapter 
 				.antMatchers("/places/**").hasAnyRole("ADMIN")
 				.antMatchers("/users/**").hasAnyRole("ADMIN")
 				.anyRequest().authenticated();
+				
+				**/
 	}
 }			
 
